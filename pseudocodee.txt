@@ -1,0 +1,331 @@
+
+1
+
+Start program;
+Do
+    Display main menu;
+    Input choice;
+    Case based on choice;
+        Case == 1
+            insurance plan subscription();
+        Case == 2
+            claim processing();
+        Case == 3
+            account information();
+        Case == 4
+            search record();
+        Default
+            Display "Invalid choice"
+    End Case;
+End while ( choice not equal to '5');
+End program;
+
+
+
+
+---------------------------------------------
+
+Start program;
+Display insurance plan subscription menu;
+Input choice;
+Case based on choice;
+    Case == 1
+        subscribe insurance();
+    Case == 2
+        display subscribers data();
+    Case == 3
+        main();
+    Default
+        Print "Invalid choice"
+        insurance plan subscription();
+End Case;
+End program;
+
+
+Start program;
+Input date of birth;
+Calculate Age;
+IF age <= 20:
+    Display Insurance plan and its benefits;
+    store subscribers data();
+ELSE IF age <= 40:
+    Display Insurance plan and its benefits;
+    store subscribers data();
+ELSE IF age <= 54:
+    Display Insurance plan and its benefits;
+    store subscribers data();
+ELSE:
+    Print "Insurance plan not available";
+ENDIF
+End the program;
+
+
+
+
+
+
+//          store subscribers data
+
+
+
+Start program;
+Open 'subscribers' file;
+Input detail name, gender, contact no., email, address, claim type, plan type, insured amt, health history;
+Save the details in an opened file;
+Close the file;
+End the program;
+
+
+
+
+
+Start program;
+Open 'subscribers' file;
+Read details in 'subscribers' file;
+Display id, name, gender, subscribed date, age, contact no., email, address, claim type, plan type, insured amt, health history;
+Close the file;
+End the program;
+
+----------------------------------------------
+
+
+
+
+Start program;
+Display claim processing menu;
+Input choice;
+Case based on choice;
+    Case == 1
+        submit claim();
+    Case == 2
+        display claim();
+    Case == 3
+        main();
+    Default
+        Display "Invalid choice"
+        claim processing();
+End Case;
+End program;
+
+
+
+Start program;
+Initialize found to 0;
+Input no.of days in normal ward and in icu, supplies fees, surgical fees, other fees, subscriber id;
+Open 'subscribers' file;
+Open 'temp' file;
+Read detail in 'subscribers' file;
+IF subscriber id:
+    set found to 1;
+    calculate claimed amount, claimable amount;
+    Add detail claimed amount, claimable amount in 'temp' file;
+ENDIF
+Save detail in an opened file;
+Close 'temp' file;
+Close 'subscribers' file;
+IF found:
+    Open 'subscribers' file;
+    Open 'temp' file;
+    Read detail in 'temp' file;
+    Save detail in 'subscribers' file;
+    Close 'temp' file;
+    Close 'subscribers' file;
+ELSE:
+    Print "Subscriber ID not available";
+ENDIF
+Close the program;
+
+
+
+
+Start program;
+Open 'subscribers' file;
+Read details in 'subscribers' file;
+IF claim status == Active:
+    Display id, name, gender, subscribed date, age, contact no., email, address, claim type, plan type, insured amt, health history;
+ENDIF
+Close the file;
+End the program;
+
+
+
+----------------------------------------------
+
+Start program;
+Account information page;
+Read choice;
+Case based on choice;
+    Case == 1
+        claim by lifetime subscribers();
+    Case == 2
+        exhausted annual subscribers();
+    Case == 3
+        view all subscribers details();
+    Case == 4
+        main();
+    Default
+        Print "Invalid choice"
+        account information();
+End Case;
+End program;
+
+
+
+
+Start program;
+Set total claimed amount to zero;
+Open 'subscribers' file;
+Read details in 'subscribers' file;
+IF claim type == Annual Claim Limit:
+    Display subscribers details
+    Add claimed amount to the total claimed;
+ENDIF
+Display total claimed amount;
+Close the file;
+End the program;
+
+
+Start program;
+Set  no. of subscribers to zero;
+Open 'subscribers' file;
+Read details in 'subscribers' file;
+IF claim type == Annual Claim Limit:
+    IF claimed amount == 12000 or claimed amount == 150000 or claimed amount == 200000
+    or claimed amount == 600000 or claimed amount == 750000 or claimed amount == 10000000:
+        Display subscribers details
+        Add one to the no. of subscribers;
+ENDIF
+Display no. of subscribers;
+Close the file;
+End the program;
+
+
+
+
+Start program;
+Open 'subscribers' file;
+Read details in 'subscribers' file;
+Display subscribers details
+Close the file;
+End the program;
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+
+search 
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+
+Start program;
+Display search record menu;
+Read choice;
+Case based on choice;
+    Case == 1
+        search by subscriber id();
+    Case == 2
+        search by subscriber name();
+    Case == 3
+        search by insurance plan type();
+    Case == 4
+        search by insurance claim type();
+    Case == 5
+        search by subscriber age();
+    Case == 6:
+        main();
+    Default
+        Print "Invalid choice"
+        search record();
+End Case;
+End program;
+
+
+
+Start program;
+Initialize found to 0;
+Input subscriber ID;
+Open 'subscribers' file;
+Read details in 'subscribers' file;
+IF subscribers id:
+    set found to 1;
+    Display subscribers details;
+ENDIF
+Close the file;
+IF not found:
+    Print "ID not found"
+ENDIF
+End the program;
+
+
+
+Start program;
+Initialize found to 0;
+Input subscriber name;
+Open 'subscribers' file;
+Read details in 'subscribers' file;
+IF subscribers name:
+    set found to 1;
+    Display subscribers details;
+ENDIF
+Close the file;
+IF not found:
+    Print "Name not found"
+End the program;
+
+
+Start program;
+Open 'subscribers' file;
+Display available plans;
+Read choice;
+IF choice == 1:
+    set plan name to 'Plan 120';
+ELSE IF choice == 2:
+    set plan name to 'Plan 150';
+ELSE IF choice == 3:
+    set plan name to 'Plan 200';
+ELSE
+    Print "Invalid input"
+ENDIF
+Read details from 'subscribers' file;
+IF plan type == plan name:
+    Display subscribers details;
+ENDIF
+Close the file;
+End the program;
+
+
+
+Start program;
+Open 'subscribers' file;
+Display available claim;
+Read choice;
+IF choice == 1:
+    set claim name to 'Annual Claim Limit';
+ELSE IF choice == 2:
+    set claim name to 'Lifetime Claim Limit';
+ELSE
+    Print "Invalid input"
+ENDIF
+Read details from 'subscribers' file;
+IF claim type == claim name:
+    Display subscribers details;
+ENDIF
+Close the file;
+End the program;
+
+
+Start program;
+Initialize found to 0;
+Input subscriber age;
+Open 'subscribers' file;
+Read details from 'subscribers' file;
+IF age:
+    set found to 1;
+    Display subscribers details;
+ENDIF
+Close the file;
+IF not found:
+    Print "Subscriber of age not found"
+End the program;
+
+
